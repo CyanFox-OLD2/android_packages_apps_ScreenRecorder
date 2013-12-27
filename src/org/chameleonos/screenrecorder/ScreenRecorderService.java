@@ -86,6 +86,8 @@ public class ScreenRecorderService extends IntentService
         } else {
             sActionSound.play(MediaActionSound.STOP_VIDEO_RECORDING);
             sScreenRecorder.stop();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SHOW_TOUCHES, 0);
             postProcessingNotification();
         }
     }
